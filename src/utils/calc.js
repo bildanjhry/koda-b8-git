@@ -1,5 +1,15 @@
+const {vdt} = require('./validator')
+
 exports.multiply = (num1,num2)=>{
-  return num1*num2;
+  if(vdt.isNumber(num1, num2)){
+    return num1*num2;
+  } else{
+    const desc = {
+      error:vdt.description.message, value: 
+      vdt.description.returnValue
+    }
+    return desc
+  }
 };
 
 exports.divide = (num1, num2)=>{
